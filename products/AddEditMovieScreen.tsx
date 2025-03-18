@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
-import {RootStackParamList, Movie} from '../types'; // Import types
+import {RootStackParamList, Movie} from '../types';
 import {TextInput} from 'react-native-paper';
 import AppContext from './AppContext';
 
@@ -37,7 +37,7 @@ const AddEditMovieScreen: React.FC<Props> = ({route, navigation}) => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // ✅ Return true if no errors
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSave = () => {
@@ -49,12 +49,12 @@ const AddEditMovieScreen: React.FC<Props> = ({route, navigation}) => {
     if (route.params?.movie) {
       dispatch({
         type: 'UPDATE_MOVIE',
-        payload: {...movieData, id: Number(movieData.id)}, // Ensure id is a number
+        payload: {...movieData, id: Number(movieData.id)},
       });
     } else {
       dispatch({
         type: 'ADD_MOVIE',
-        payload: {...movieData, id: Date.now()}, // Generate unique ID
+        payload: {...movieData, id: Date.now()}, // generates unique ID
       });
     }
     navigation.goBack();
@@ -68,8 +68,8 @@ const AddEditMovieScreen: React.FC<Props> = ({route, navigation}) => {
         value={movieData.name}
         onChangeText={text => setMovieData({...movieData, name: text})}
       />
-      {errors.name && <Text style={styles.error}>{errors.name}</Text>}{' '}
-      {/* ✅ Error message */}
+      {errors.name && <Text style={styles.error}>{errors.name}</Text>} //Error
+      message
       <Text>Release Date</Text>
       <TextInput
         style={styles.input}
@@ -80,7 +80,7 @@ const AddEditMovieScreen: React.FC<Props> = ({route, navigation}) => {
       {errors.releaseDate && (
         <Text style={styles.error}>{errors.releaseDate}</Text>
       )}{' '}
-      {/* ✅ Error message */}
+      //Error message
       <Text>Actors</Text>
       <TextInput
         style={styles.input}
@@ -88,7 +88,7 @@ const AddEditMovieScreen: React.FC<Props> = ({route, navigation}) => {
         onChangeText={text => setMovieData({...movieData, actors: text})}
       />
       {errors.actors && <Text style={styles.error}>{errors.actors}</Text>}{' '}
-      {/* ✅ Error message */}
+      //Error message
       <Button
         title="Back to Home"
         onPress={() => navigation.navigate('Home')}

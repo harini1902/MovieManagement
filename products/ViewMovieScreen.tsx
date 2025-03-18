@@ -6,8 +6,6 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {RootStackParamList} from '../types'; // Import the RootStackParamList
 
-// ✅ Fix: Ensure Props are properly defined
-
 type Props = NativeStackScreenProps<RootStackParamList, 'ViewMovie'>;
 
 const ViewMovieScreen: React.FC<Props> = ({route, navigation}) => {

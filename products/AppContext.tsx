@@ -16,7 +16,6 @@ type Action =
   | {type: 'UPDATE_MOVIE'; payload: Movie}
   | {type: 'DELETE_MOVIE'; payload: number};
 
-// ✅ Correctly formatted initial dummy data
 const initialState: State = {
   movies: [
     {
